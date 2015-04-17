@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pinterest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<!--Renders a navbar from views/layouts/_header.html.erb which is a component from bootstrap-->
+<%= render 'layouts/header' %>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+
+</body>
+</html>
