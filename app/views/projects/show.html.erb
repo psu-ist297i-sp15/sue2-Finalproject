@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+	<strong>Project Picture:</strong>
+	<%= image_tag @project.projectpic.url(:medium) %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @project.name %>
 </p><br>

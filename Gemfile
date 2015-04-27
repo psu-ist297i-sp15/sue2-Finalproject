@@ -46,6 +46,6 @@ group :development, :test do
 
   gem 'devise'
 
-  gem 'paperclip', '~> 4.2'
+  gem 'paperclip', '~> 4.2.1'
 end
 
