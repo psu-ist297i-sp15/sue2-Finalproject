@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150427150024) do
+ActiveRecord::Schema.define(version: 20150427210457) do
 
   create_table "posts", force: :cascade do |t|
     t.text     "comments"
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(version: 20150427150024) do
     t.string   "projectpic_content_type"
     t.integer  "projectpic_file_size"
     t.datetime "projectpic_updated_at"
+    t.integer  "project_id"
   end
+
+  add_index "projects", ["project_id"], name: "index_projects_on_project_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
