@@ -12,12 +12,14 @@
   <% end %>
 
   <div>
+    <%= f.label :projectpic %>
     <%= f.file_field :projectpic %>
   </div><br>
 
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    <p id="project_error" class="bg-danger">This project name already exists.</p>
   </div>
   <div class="field">
     <%= f.label :groupsize %><br>

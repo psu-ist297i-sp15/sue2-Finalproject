@@ -5,12 +5,42 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+<style>
+#project_error{
+	display: none;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$("#project_name").on("blur", function(){
+		var duplicate = false;
+		$.ajax({
+			url: "/projects.json",
+			success: function(data){
+				for(i=0; i < data.length; i++){
+					if (data[i].name.toLowerCase() == $("#project_name").val().toLowerCase()){
+						$("#project_error").show();
+						duplicate = true;
+						break;
+					}
+				}
+				if(!duplicate){
+					$("#project_error").hide();
+				}
+			}
+		});
+	});
+});
+</script>
+
 </head>
 <body>
 <!--Renders a navbar from views/layouts/_header.html.erb which is a component from bootstrap-->
 <%= render 'layouts/header' %>
+<!--
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+-->
 <%= yield %>
 
 </body>
