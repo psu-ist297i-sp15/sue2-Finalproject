@@ -61,6 +61,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def add_comment
+    @post.find(params[:project_id])
+    @post.create
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -69,6 +74,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:comments)
+      params.require(:post).permit(:comments, :project_id)
     end
 end

@@ -61,6 +61,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def grab_comments
+    @project = Project.find(params[:id])
+    @project.posts.show
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
