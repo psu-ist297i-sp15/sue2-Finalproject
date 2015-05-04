@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :posts
 
-  resources :projects
+  resources :projects do
+    member do
+      get 'grab_comments'
+    end
+  end
 
   devise_for :users
   get 'pages/home'
